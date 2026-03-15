@@ -1,0 +1,147 @@
+* { 
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1a1a1a;
+    color: #a0a0a0;
+    padding: 30px 15px;
+}
+
+.container{
+    background-color: #242424;
+    border-radius: 1rem;
+    padding: 40px;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: fadeIn .5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header h1{
+    margin-bottom: 10px;
+    color: #4ade80;
+    font-size: 2.5rem;
+}
+
+.header p {
+    margin-bottom: 30px;
+    font-size: 0.9rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 15px; 
+    margin-bottom: 15px;
+}
+
+.input-group {
+    background-color: #333333; 
+    display: flex;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid transparent; 
+    transition: border 0.3s;
+}
+
+.input-group:focus-within {
+    border: 1px solid #4ade80;
+}
+
+
+textarea , input{
+    width: 100%;
+    background-color: transparent;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+    color: #ffffff;
+    outline: none; 
+    position: relative;
+}
+
+.textarea-group {
+    align-items: flex-start; /* بيخلي الأيقونة تطلع فوق */
+    margin-bottom: 20px;
+}
+
+textarea {
+    resize: none; /* يمنع المستخدم إنه يشد المربع ويكبره */
+}
+
+button{
+    background-color: #4ade80;
+    color: #000000;
+    width: 100%;
+    border: none;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: box-shadow 0.3s ease;
+}
+
+button:hover{
+    box-shadow: 0px 5px 15px rgba(0, 187, 25, 0.438);
+}
+
+hr{
+    margin: 30px 0;
+    border: none;
+    border-top: 2px solid #474747;
+}
+
+.footer{
+    display: flex;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #666;
+    flex-direction: column;
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+    gap: 15px;
+    border-top: 1px solid #444;
+    padding-top: 20px;
+}
+
+.icon {
+    color: #4ade80;
+    margin-right: 10px;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr; 
+    }
+    .footer {
+        flex-direction: column; 
+    }
+    .container {
+        padding: 25px;
+    }
+    .header h1 {
+        font-size: 1.8rem;
+    }
+}

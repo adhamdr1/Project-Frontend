@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Get In Touch</h1>
+        <p>Fill out the form below</p>
+      </div>
+
+      <form>
+        <div class="grid">
+          <div class="input-group">
+            <i class="fa-solid fa-user icon"></i>
+            <input type="text" id="name" name="name" placeholder="Name" />
+          </div>
+          <div class="input-group">
+            <i class="fa-solid fa-envelope icon"></i>
+            <input type="email" id="email" name="email" placeholder="Email" />
+          </div>
+
+          <div class="input-group">
+            <i class="fa-solid fa-phone icon"></i>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="Phone (optional)"
+            />
+          </div>
+
+          <div class="input-group">
+            <i class="fa-solid fa-tag icon"></i>
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              placeholder="Subject"
+            />
+          </div>
+        </div>
+        <div class="input-group textarea-group">
+          <i class="fa-solid fa-comment icon"></i>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Your Message"
+            rows="5"
+          ></textarea>
+        </div>
+
+        <button type="submit">
+          Send Message <i class="fa-solid fa-paper-plane"></i>
+        </button>
+      </form>
+
+      <div class="footer">
+        <p>
+          <i class="fa-solid fa-location-dot icon"></i> 123 Main Street, City,
+          Country
+        </p>
+        <p><i class="fa-solid fa-envelope icon"></i> contact@example.com</p>
+        <p><i class="fa-solid fa-phone icon"></i> +1 234 567 8900</p>
+      </div>
+    </div>
+  </body>
+</html>
