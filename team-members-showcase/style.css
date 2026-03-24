@@ -1,0 +1,219 @@
+* { 
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+:root {
+  --primary-color: #a78bfa;
+  --primary-dark: #8b5cf6;
+  --primary-light: #c4b5fd;
+  --primary-gradient: linear-gradient(135deg, #a78bfa, #8b5cf6);
+  --bg-dark: #1a1a1a;
+  --text-light: #f3f4f6;
+  --text-gray: #9ca3af;
+  --card-bg: #252525;
+  --card-hover: #2e2e2e;
+  --border-radius: 12px;
+  --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 20px 25px rgba(0, 0, 0, 0.15);
+  --border-light: rgba(255, 255, 255, 0.05);
+  --bg-overlay: rgba(255, 255, 255, 0.1);
+  --text-dark: #000;
+  --shadow-color-primary: rgba(139, 92, 246, 0.3);
+  --shadow-color-primary-hover: rgba(139, 92, 246, 0.4);
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    padding: 50px 15px;
+    line-height: 1.6;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+.header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+
+.header h1 {
+    font-size: 2.7rem;
+  margin-bottom: 15px;
+  background: linear-gradient(to right, var(--primary-color), var(--primary-light));
+  background-clip: text;
+  -webkit-background-clip: text; 
+  color: transparent;
+  display: inline-block;
+  position: relative;
+}
+
+.header h1::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-54%);
+    width: 60px; 
+    height: 4px; 
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+.header p {
+  color: var(--text-gray);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.team-card{
+    background: linear-gradient(
+        to bottom, 
+        var(--primary-color) 0%, 
+        var(--primary-color) 100px, 
+        var(--card-bg) 100px, 
+        var(--card-bg) 100%
+    );
+
+    border-radius: var(--border-radius);
+    padding: 30px;
+    text-align: center;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    position: relative;
+    flex-direction: column; 
+    height: 100%;
+}
+
+.team-card:hover {
+    background: linear-gradient(
+        to bottom, 
+        var(--primary-light) 0%, 
+        var(--primary-light) 100px, 
+        var(--card-hover) 100px, 
+        var(--card-hover) 100%
+    );
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-md);
+}
+
+.positions {
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    font-weight: 800;
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid #555555; 
+    margin: 30px -30px; 
+}
+
+.bio {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    text-align: left;
+}
+
+.social-links {
+  display: flex;
+  margin-top: auto;
+  gap: 15px;
+  justify-content: center;
+  padding-top: 30px;
+}
+
+.social-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  text-decoration: none;
+  background-color: var(--bg-overlay);
+  color: var(--text-light);
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  background-color: var(--primary-color);
+  color: var(--text-dark);
+  transform: translateY(-3px);
+}
+
+img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border: 2px solid var(--card-bg);
+    border-radius: 50%;
+    margin-top: 30px;
+}
+
+.footer{
+    background-color: var(--border-light);
+    border: 0px solid var(--border-light);
+    border-radius: var(--border-radius);
+    border-top: 3px solid var(--primary-color);
+    gap: 30px;
+    max-width: 1200px;
+    width: 100%;
+    margin-top: 50px;
+    padding: 40px;
+    flex-direction: column;
+    text-align: center;
+}
+
+.footer h2 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    padding-bottom: 5px;
+}
+
+.footer p {
+    color: var(--text-gray);
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: var(--text-dark);
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-top: 25px;
+}
+
+.btn:hover {
+    background-color: var(--primary-light);
+    color: var(--text-dark);
+    transform: translateY(-3px);
+}
