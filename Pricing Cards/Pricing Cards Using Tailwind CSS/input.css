@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+:root {
+  --primary-color: #4ade80;
+  --background-color: #242424;
+  --text-color: #a0a0a0;
+  --card-background: #333333;
+}
+
+@theme {
+  --font-sans: ui-sans-serif, system-ui, sans-serif;
+  --color-primary: var(--primary-color);
+  --color-background: var(--background-color);
+  --color-text-main: var(--text-color);
+  --color-card: var(--card-background);
+}
+
+@layer components {
+   .card {
+    @apply overflow-hidden relative bg-card rounded-2xl p-8  border border-transparent transition-all duration-300;
+  
+    @apply hover:bg-[#3a3a3a] hover:translate-y-2.5 hover:shadow-2xl;
+    
+    @apply focus-within:border-primary;
+  }
+/* size-15 =>  w-15 h-15*/
+  .icon-circle{
+    @apply bg-[#1f3b2b] size-15  rounded-full flex justify-center items-center mx-auto mb-5;
+  }
+
+  .icon-circle i{
+    @apply text-primary text-2xl;
+  }
+
+  h3{
+    @apply text-white mb-4 text-center font-bold;
+  }
+
+  .price-Info {
+        @apply flex flex-col items-center mb-8;
+  }
+
+  .price-Info p {
+        @apply text-sm text-text-main mt-2.5;
+  }
+
+  .price{
+        @apply font-bold text-5xl text-primary items-center;
+  }
+
+  button{
+    @apply grow block w-full p-3.5 m-auto bg-[#444] text-white border-solid border-2 border-[#585858] rounded-[10px] text-xl font-medium cursor-pointer border-transparent transition-all duration-300;
+  
+    @apply focus-within:bg-primary focus-within:text-black shadow-xl;
+  }
+
+  .divider{
+    @apply border-none border-t border-t-[#555555] border-solid my-[30px] mx-[-30px];
+  }
+
+  .features{
+    @apply mt-8 p-0 text-left;
+  }
+
+  .features ul{
+    @apply pt-7 list-none;
+  }
+
+  .features ul li{
+    @apply mb-5 pl-3.5 relative;
+  }
+
+  .features li.active{
+    @apply text-white;
+  }
+
+  .features li.active i{
+    @apply text-primary mr-1.5 text-[1.1rem];
+  }
+
+  .features li.inactive{
+    @apply text-[#666666];
+  }
+
+  .features li.inactive i{
+    @apply text-[#ef4444] mr-1.5 text-[1.1rem];
+  }
+}

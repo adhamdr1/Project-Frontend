@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pricing Cards</title>
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body
+    class="font-sans bg-background leading-[1.6] py-10 px-4 text-text-main flex justify-center min-h-screen items-center flex-col"
+  >
+    <div class="mb-10 text-center">
+      <h1 class="font-bold text-3xl text-primary">Choose Your Plan</h1>
+      <p class="text-sm mt-2.5">Choose the plan that best suits your needs.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-12">
+      <div class="card">
+        <div class="icon-circle">
+          <i class="fa-solid fa-rocket"></i>
+        </div>
+        <h3>Basic</h3>
+        <div class="price-Info">
+          <p>
+            <span class="price"><sup>$</sup>9</span><span>/month</span>
+          </p>
+          <p>Perfect for individuals and small projects.</p>
+        </div>
+        <hr class="divider" />
+        <div class="features">
+          <ul>
+            <!--style="list-style: none;" -->
+            <li class="active"><i class="fa-solid fa-check"></i> 5 Projects</li>
+            <li class="active">
+              <i class="fa-solid fa-check"></i> 20GB Storage
+            </li>
+            <li class="active">
+              <i class="fa-solid fa-check"></i> Basic Support
+            </li>
+            <li class="active">
+              <i class="fa-solid fa-check"></i> Email Notifications
+            </li>
+
+            <li class="inactive">
+              <i class="fa-solid fa-xmark"></i> Advanced Analytics
+            </li>
+            <li class="inactive">
+              <i class="fa-solid fa-xmark"></i> Custom Domain
+            </li>
+          </ul>
+        </div>
+
+        <button class="btn">Get Started</button>
+      </div>
+
+      <div class="card">
+        <span
+          class="text-black absolute top-3.75 right-3.75 bg-primary py-1.25 px-3 text-[0.7rem] font-bold rounded-3xl"
+          >Most Popular</span
+        >
+        <div class="icon-circle">
+          <i class="fa-solid fa-gem"></i>
+        </div>
+        <h3>Pro</h3>
+        <div class="price-Info">
+          <p>
+            <span class="price"><sup>$</sup>29</span><span>/month</span>
+          </p>
+          <p>Ideal for professionals and growing businesses.</p>
+        </div>
+        <hr class="divider" />
+        <div class="features">
+          <ul>
+            <li class="active">
+              <i class="fa-solid fa-check"></i> 20 Projects
+            </li>
+            <li class="active">
+              <i class="fa-solid fa-check"></i> 50GB Storage
+            </li>
+            <li class="active">
+              <i class="fa-solid fa-check"></i> Priority Support
+            </li>
+            <li class="active">
+              <i class="fa-solid fa-check"></i> Email Notifications
+            </li>
+            <li class="active">
+              <i class="fa-solid fa-check"></i> Advanced Analytics
+            </li>
+            <li class="inactive">
+              <i class="fa-solid fa-xmark"></i> Custom Domain
+            </li>
+          </ul>
+        </div>
+
+        <button class="btn">Get Started</button>
+      </div>
+
+      <div class="card">
+        <div class="icon-circle">
+          <i class="fa-solid fa-building"></i>
+        </div>
+        <h3>Enterprise</h3>
+        <div class="price-Info">
+          <p>
+            <span class="price"><sup>$</sup>79</span><span>/month</span>
+          </p>
+          <p>Best for large organizations and enterprises.</p>
+        </div>
+        <hr class="divider" />
+        <div class="features">
+          <ul>
+            <!--style="list-style: none;" -->
+            <li class="active">
+              <i class="fa-solid fa-check"></i> Unlimited Projects
+            </li>
+            <li class="active">
+              <i class="fa-solid fa-check"></i> 200GB Storage
+            </li>
+            <li class="active">
+              <i class="fa-solid fa-check"></i> 24/7 Support
+            </li>
+            <li class="active">
+              <i class="fa-solid fa-check"></i> Email Notifications
+            </li>
+            <li class="active">
+              <i class="fa-solid fa-check"></i> Advanced Analytics
+            </li>
+            <li class="active">
+              <i class="fa-solid fa-check"></i> Custom Domain
+            </li>
+          </ul>
+        </div>
+
+        <button class="btn">Get Started</button>
+      </div>
+    </div>
+
+    <div
+      class="bg-card rounded-2xl mt-7.5 p-10 shadow-xl mx-auto w-[95%] md:w-[80%] lg:w-[40%] max-w-250"
+    >
+      <div class="relative pl-12 mb-6">
+        <i
+          class="fa-solid fa-quote-left absolute left-0 -top-5 text-[2rem] text-[#4ade805b]"
+        ></i>
+        <p class="text-[1rem] text-white m-0">
+          Switching to this service has been a game-changer for our business.
+          The features and support are top-notch, and the pricing is unbeatable.
+        </p>
+      </div>
+      <div class="flex items-center gap-4 text-xl text-white font-bold">
+        <img
+          src="Adham.jpg"
+          alt="Adham Mohamed"
+          class="size-12 object-cover border-2 border-solid border-primary rounded-[50%]"
+        />
+        <div>
+          <p>Adham Mohamed</p>
+          <p class="text-primary text-[0.9rem]">Marketing Director</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
