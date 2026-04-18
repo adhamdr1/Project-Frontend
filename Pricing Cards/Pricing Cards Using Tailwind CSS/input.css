@@ -49,13 +49,13 @@
   }
 
   button{
-    @apply grow block w-full p-3.5 m-auto bg-[#444] text-white border-solid border-2 border-[#585858] rounded-[10px] text-xl font-medium cursor-pointer border-transparent transition-all duration-300;
+    @apply grow block w-full p-3.5 m-auto bg-[#444] text-white border-solid border-2  rounded-[10px] text-xl font-medium cursor-pointer border-transparent transition-all duration-300;
   
     @apply focus-within:bg-primary focus-within:text-black shadow-xl;
   }
 
   .divider{
-    @apply border-none border-t border-t-[#555555] border-solid my-[30px] mx-[-30px];
+    @apply border-none border-t border-t-[#555555]  my-7.5 mx-7.5;
   }
 
   .features{
