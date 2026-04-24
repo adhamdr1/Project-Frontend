@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+/* 1. استدعاء خط Inter من جوجل */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* 2. باليتة الألوان الأساسية */
+:root {
+  /* ألوان القائمة الجانبية والزرار (Dark Indigo/Purple) */
+  --sidebar-bg: #1a1b3a; 
+  --sidebar-active: #2e2f50; /* لون التاب لما تقف عليه */
+  --primary-btn: #141530; /* لون زرار Submit */
+
+  /* ألوان الخلفيات والكروت */
+  --main-bg: #f5f7fa; /* لون خلفية الصفحة الفاتح */
+  --card-bg: #ffffff; /* لون الكارت الأبيض */
+  
+  /* ألوان حقول الإدخال (Inputs) */
+  --input-bg: #f8fafc; /* رمادي فاتح جداً جوه المربع */
+  --input-border: #e2e8f0; /* لون الحافة بتاعت المربع */
+  --input-focus: #3b82f6; /* الأزرق اللي بينور لما تدوس جوه المربع */
+
+  /* ألوان النصوص (Typography Colors) */
+  --text-heading: #1a1b3a; /* كحلي غامق جداً للعناوين (Registration) */
+  --text-label: #64748b; /* رمادي لأسماء الحقول (Full Name) */
+  --text-placeholder: #94a3b8; /* رمادي فاتح للكلام اللي جوه المربع */
+}
+
+/* 3. تعريفات الـ Theme لو بتستخدم Tailwind v4 */
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  
+  --color-sidebar: var(--sidebar-bg);
+  --color-sidebar-active: var(--sidebar-active);
+  --color-main: var(--main-bg);
+  --color-card: var(--card-bg);
+  --color-input: var(--input-bg);
+  --color-border: var(--input-border);
+  
+  --color-heading: var(--text-heading);
+  --color-label: var(--text-label);
+  --color-placeholder: var(--text-placeholder);
+}
+
+/* تطبيق الخط على الجسم كله */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--main-bg);
+  color: var(--text-heading);
+}
+
+@layer components {
+   label {
+    @apply text-xs font-bold text-label uppercase tracking-wider;
+   }
+
+   /* الحركة السحرية لتوسيط الأيقونة بالطول دايماً */
+   i {
+    @apply absolute left-4 top-1/2 -translate-y-1/2 text-placeholder;
+   }
+
+   /* شيلنا m-7 وزودنا py-4 عشان المربع يتخن شوية ويبقى فخم */
+   input {
+    @apply w-full bg-input border border-border rounded-xl py-4 pl-12 pr-4 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all;
+   }
+
+   .pos {
+    @apply relative;
+   }
+   
+   .sideBarIcon{
+    @apply relative! translate-y-0! top-0! left-0! w-5
+   }
+
+   /* زودنا الـ gap عشان نبعد الكلمة عن المربع سِنة صغيرة */
+   .input-group {
+    @apply flex flex-col gap-3;
+   }
+}

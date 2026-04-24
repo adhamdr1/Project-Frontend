@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="flex bg-main font-sans h-screen overflow-hidden text-heading">
+    <nav
+      class="w-64 h-screen bg-sidebar flex flex-col shadow-2xl p-6 rounded-r-3xl text-label"
+    >
+      <div class="flex items-center gap-3 mb-16 mt-4 text-white">
+        <i
+          class="fa-solid fa-house-medical text-2xl text-blue-500 sideBarIcon"
+        ></i>
+        <h3 class="font-extrabold text-2xl tracking-tight">Elite Clinic</h3>
+      </div>
+
+      <ul class="flex flex-col gap-4 text-sm font-medium">
+        <li
+          class="flex items-center gap-4 bg-white/10 text-white p-4 rounded-xl cursor-pointer shadow-sm relative"
+        >
+          <i class="fa-solid fa-user-plus text-blue-400 sideBarIcon"></i>
+          <span>Registration</span>
+        </li>
+        <li
+          class="flex items-center gap-4 hover:bg-white/5 p-4 rounded-xl cursor-pointer transition-all relative"
+        >
+          <i class="fa-solid fa-hospital-user opacity-70 sideBarIcon"></i>
+          <span>Patients</span>
+        </li>
+      </ul>
+    </nav>
+
+    <main class="flex-1 p-12 overflow-y-auto flex flex-col">
+      <header class="mb-10">
+        <h1
+          class="font-extrabold text-4xl bg-linear-to-r from-sidebar to-blue-500 bg-clip-text text-transparent inline-block mb-3"
+        >
+          New Patient Registration
+        </h1>
+        <p class="text-label text-base font-medium">
+          Please enter the patient's details below to create a new digital
+          record.
+        </p>
+      </header>
+
+      <div
+        id="formCard"
+        class="bg-card p-10 border border-gray-100 rounded-3xl shadow-lg w-full max-w-7xl mx-auto flex-1"
+      >
+        <form
+          id="registrationForm"
+          class="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-10"
+        >
+          <div class="input-group">
+            <label for="fullname">Full Name *</label>
+            <div class="pos">
+              <i class="fa-solid fa-user"></i>
+              <input
+                type="text"
+                id="fullname"
+                name="fullname"
+                placeholder="e.g. Jane Doe"
+              />
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="dob">Date of Birth *</label>
+            <div class="pos">
+              <i class="fa-solid fa-calendar-days"></i>
+              <input type="date" id="dob" name="dob" />
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="phone">Phone *</label>
+            <div class="pos">
+              <i class="fa-solid fa-phone"></i>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="+1 (555) 000-0000"
+              />
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="email">Email *</label>
+            <div class="pos">
+              <i class="fa-solid fa-envelope"></i>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="patient@example.com"
+              />
+            </div>
+          </div>
+
+          <div class="input-group md:col-span-2">
+            <label for="address">Address *</label>
+            <div class="pos">
+              <i class="fa-solid fa-location-dot"></i>
+              <input
+                type="text"
+                id="address"
+                name="address"
+                placeholder="Full street address, city, state"
+              />
+            </div>
+          </div>
+
+          <div class="input-group md:col-span-2">
+            <label for="password">Password *</label>
+            <div class="pos">
+              <i class="fa-solid fa-lock"></i>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="••••••••"
+              />
+            </div>
+          </div>
+
+          <div class="md:col-span-2 mt-6">
+            <button
+              type="submit"
+              id="submitBtn"
+              class="w-full bg-linear-to-r from-sidebar to-blue-600 text-white font-bold py-5 text-lg rounded-xl shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all"
+            >
+              Submit Registration
+            </button>
+          </div>
+        </form>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
