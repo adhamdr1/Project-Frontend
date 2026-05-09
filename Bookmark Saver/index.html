@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookmark Saver</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Bookmark Saver</h1>
+      <form>
+        <div class="input-group">
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Bookmark Name"
+          />
+        </div>
+        <div class="input-group">
+          <input type="url" id="url" name="url" placeholder="Bookmark URL" />
+        </div>
+        <button type="submit" class="btn-submit" id="btn-submit">
+          Add Bookmark
+        </button>
+      </form>
+      <ul id="list">
+        <li class="bookmark-item">
+          <a href="https://github.com/adhamdr1/" target="_blank"
+            >My Github Profile</a
+          >
+          <button class="btn-remove">Remove</button>
+        </li>
+      </ul>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
