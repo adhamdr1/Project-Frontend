@@ -1,0 +1,385 @@
+* { 
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+:root {
+    /* 🌑 الخلفيات (Backgrounds) */
+    --bg-main: #0b1020;          /* لون الصفحة الأساسي (أزرق ليلي/Slate 900) */
+    --bg-panel: rgba(255, 255, 255, 0.06);         /* خلفية الكروت والـ Form (Slate 800) */
+    --bg-form: #303947a9;         /* خلفية الكروت والـ Form (Slate 800) */
+    --bg-input: #191e2b;         /* خلفية مربعات الكتابة والسيرش */
+    --bg-button-secondary: #334155; /* لون الزراير العادية زي Reset و Seed */
+
+    /* 📝 النصوص (Text) */
+    --text-primary: #f8fafc;     /* أبيض ناصع للعناوين والكلام الأساسي */
+    --text-secondary: #9ca9b9;   /* رمادي فاتح للتواريخ والوصف */
+    --text-muted: #64748b;       /* رمادي غامق شوية للـ Placeholders */
+
+    /* 🎯 الألوان الأساسية والأزرار (Primary Actions) */
+    --color-primary: #1661d8;    /* الأزرق لزرار Add Task والـ Active Filter */
+    --color-primary-hover: #2563eb;
+    
+    --color-danger: #ff4f6d;     /* الأحمر لزرار Delete */
+    --color-danger-hover: #dc2828;
+
+    /* ⏳ ألوان حالة التاسك (Pending) - الأصفر/البرتقالي */
+    --status-pending-bg: rgba(255, 214, 79, 0.14);      /* لون الخط الجانبي والحدود */
+    --status-pending: rgba(255, 214, 79, 0.3);   /* لون خلفية زرار Pending الشفاف الغامق */
+
+    /* ✅ ألوان حالة التاسك (Done) - الأخضر */
+    --status-done: rgba(79, 255, 154, 0.28);         /* لون الخط الجانبي وعلامة الصح */
+    --status-done-bg: rgba(79, 255, 154, 0.12);      /* لون خلفية التاج وزرار Done */
+
+    /* ➖ الحدود والمسافات (Borders) */
+    --border-color: rgba(255, 255, 255, 0.12);        /* لون الإطار العادي (الرمادي) */
+    --border-radius: 15px;           /* لتوحيد حواف الكروت والزراير */
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    min-height: 100vh;
+    padding: 2rem;
+    font-size: large;
+}
+
+.main-wrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 1500px;
+    margin: 0 auto;
+    width: 100%;
+    background-color: var(--bg-panel);
+    border: 3px solid var(--border-color);
+    border-radius: var(--border-radius);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin: 1.5rem;
+}
+
+.left-header{
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.left-header p {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+}
+
+.filters {
+    display: flex;
+    gap: 1rem;
+}
+
+.filters button {
+    background-color: var(--bg-button-secondary);
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+    padding: .7rem;
+    margin-top: 7px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+
+.filters button.active {
+    border: 3px solid var(--color-primary);
+}
+
+.right-header {
+    display: flex;
+    flex-direction: column; /* السطر ده بيخلي الصف الأول والسيرش تحت بعض */
+    align-items: flex-end; /* بيزق كل حاجة ناحية اليمين زي الصورة الأصلية */
+    gap: 0.8rem; /* المسافة بين الصف الأول والسيرش */
+}
+
+.top-actions {
+    display: flex;
+    align-items: center; /* بيسنتر الكلام مع الزراير على نفس الخط الأفقي */
+    gap: 0.8rem;
+}
+
+.top-actions p {
+    background-color: var(--bg-button-secondary); /* عشان تبقى نفس لون الزراير */
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 1.1rem;
+    margin: 0; /* عشان نشيل أي مسافات زيادة المتصفح بيعملها */
+}
+
+.top-actions button {
+    background-color: var(--bg-button-secondary);
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+    padding: .7rem;
+    margin-top: 7px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+
+#search-input {
+    margin-top: 5px;
+    width: 80%;
+}
+
+.content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    margin: -.7rem 0 1.5rem 1.5rem;
+}
+
+.left-panel {
+    display: flex;
+    flex: 1.25; /* (فليكس 1) يعني خدي جزء واحد من مساحة الشاشة */
+    max-width: 1000px; /* عشان لما الشاشة تكبر أوي، الفورم متتمطش ويبقى شكلها وحش */
+    flex-direction: column;
+    background-color: var(--bg-form);
+    padding: 25px;
+    border-radius: 26px;
+    border: 1px solid var(--border-color);
+}
+
+.left-panel h3 {
+    margin-bottom: -0.5rem;
+}
+
+.left-panel p {
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    font-size: larger;
+}
+
+.container-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex: 1; /*  السطر ده هيخلي الفورم تاخد طول وعرض اللوحة وتتنفس براحتها */
+    width: 100%; /*  تأكيد إنها تملى العرض */
+}
+
+.container-form label {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin-bottom: -0.3rem; /* بنقرب الـ Label من المربع بتاعه شوية */
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--bg-input); /* لون غاطس */
+    border: 1px solid var(--border-color);
+    border-radius: 10px; /* دوران خفيف للمربعات */
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+textarea {
+    resize: vertical;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: none; /* الخط ينور أزرق */
+}
+
+.form-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end; /* 👈 السطر السحري اللي هيزق الزرارين ناحية اليمين */
+}
+
+.form-buttons button {
+    padding: 10px 18px; /* زودنا المساحة الجانبية شوية عشان الزرار ميبقاش مخنوق */
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    font-weight: bold;
+    /* 👈 مسحنا سطر align-items الغلط من هنا */
+}
+
+.btn-Reset {
+    background-color: var(--bg-button-secondary);
+    color: var(--text-primary);
+}
+
+.btn-AddTask {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.spot-word {
+    background-color: var(--bg-button-secondary);
+    color: var(--text-secondary); /* لون مطفي شوية بيدي شياكة عن الأبيض الفاقع */
+    padding: 3px 8px; /* قللنا النفخة اللي فوق وتحت */
+    border-radius: 20px; /* دوران خفيف واحترافي */
+    border: 1px solid var(--border-color);
+    font-size: 1.2rem;
+    font-family: Consolas, monospace; /* الخط ده بيظبط شكل زراير الكيبورد جداً */
+    margin: 0 3px; /* بتبعد الزرار فنتوفة عن علامة الزائد (+) عشان مايلزقوش في بعض */
+    display: inline-block; /* التريكة السحرية اللي بتمنع الزرار إنه يبوظ ارتفاع السطر */
+}
+
+.right-panel {
+    flex: 2; /*  ده بيقول للتاسكات: "خدي باقي المساحة الفاضية في الشاشة براحتك" */
+    display: flex;
+    flex-direction: column;
+    margin-left: -15px ;
+}
+
+.tasks-header{
+    display: flex;
+    align-items: center; /* بيخلي العنوان والعداد في نفس الخط الأفقي */
+    margin-bottom: 10px;
+    gap: 12px;
+}
+
+.no-tasks-message{
+    display: none; /* بنخلي الرسالة مخفية بشكل افتراضي، هتظهر لما مفيش مهام */
+    color: var(--text-secondary);
+    border: 1px dashed var(--border-color);
+    border-radius: 15px;
+    padding: 20px;
+    margin-right: 25px;
+    text-align: left;
+    font-size: 1.3rem;
+}
+
+.task-card{
+    background-color: var(--status-pending-bg);
+    border: 1px solid var(--status-pending);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    margin-right: 25px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between; /* المحتوى شمال والزراير يمين */
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.task-card.done {
+    background-color: var(--status-done-bg);
+    border: 1px solid var(--status-done);
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 70%; /*  السطر السحري: بيمنع الكلام يتخطى 70% من الكارت فينزل سطر جديد */
+}
+
+.card-content h4 {
+    font-size: 1.3rem;
+    color: var(--text-primary);
+}
+
+.task-actions {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0; /* بيمنع الزراير إنها تكش لو الكلام كتر */
+}
+
+.task-actions button {
+    border: none; 
+    color: var(--text-primary); 
+    cursor: pointer;
+    font-size: 16px; 
+    font-weight: 800;
+    padding: 10px 15px;
+    border-radius: 15px;
+    transition: opacity 0.2s ease;
+}
+
+.btn-markDone, .btn-markPending {
+    background-color: rgba(255, 255, 255, 0.15); 
+    color: var(--text-primary);
+}
+
+.btn-delete {
+    background-color: var(--color-danger);
+}
+
+.task-desc {
+    font-size: 1.3rem; /* كبرنا الخط */
+    margin: 0;
+    line-height: 1.4;
+    word-break: break-word;
+}
+
+.task-card-footer {
+    display: flex;
+    flex-direction: column; /* 👈 ده اللي أجبر التاريخ ينزل سطر جديد */
+    align-items: flex-start; 
+    gap: 10px;
+}
+
+.tags-group {
+    display: flex;
+    gap: 10px;
+}
+
+.task-card-footer span {
+    background-color: rgba(255, 255, 255, 0.103); /* لون أبيض شفاف جداً بيدي إحساس بالعمق */
+    border: 1px solid rgba(255, 255, 255, 0.13); /* بوردر خفيف أفتح سيكة من الخلفية */
+    padding: 4px 12px;
+    border-radius: 20px; /* ده السحر اللي بيعمل الشكل البيضاوي */
+    font-size: 1rem;
+    opacity: 0.7;
+}
+
+.error-message {
+    margin-top: 5px;
+    margin-bottom: 15px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 79, 79, 0.45);
+    background: rgba(255, 79, 79, 0.12); /* أحمر شفاف */
+    color: #e00808;
+    line-height: 1.4;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.toast-message {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background: rgba(0, 0, 0, 0.7); /* أسود شفاف */
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(10px); /* بتعمل نغوشة شيك للخلفية اللي وراها */
+    color: var(--text-primary);
+    padding: 12px 18px;
+    border-radius: 12px;
+    max-width: 380px;
+    line-height: 1.35;
+    z-index: 1000; /* عشان تظهر فوق كل حاجة في الصفحة */
+}
+
+/* .toast {
+        position: fixed;
+        right: 18px;
+        bottom: 18px;
+        background: rgba(0, 0, 0, 0.55);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        backdrop-filter: blur(10px);
+        padding: 12px 14px;
+        border-radius: 14px;
+        display: none;
+        max-width: 380px;
+        line-height: 1.35;
+      } */

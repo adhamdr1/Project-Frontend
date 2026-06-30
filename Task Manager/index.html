@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="main-wrapper">
+      <div class="header">
+        <div class="left-header">
+          <h2>Task Manager (IndexedDB)</h2>
+          <p>One page • Modern UI • Persisted locally (refresh-safe)</p>
+          <div class="filters">
+            <button class="filter-btn active">All</button>
+            <button class="filter-btn">Pending</button>
+            <button class="filter-btn">Done</button>
+          </div>
+        </div>
+        <div class="right-header">
+          <div class="top-actions">
+            <p>
+              Total: <span id="total-tasks">0</span> • Pending:
+              <span id="pending-tasks">0</span> • Done:
+              <span id="done-tasks">0</span>
+            </p>
+            <button id="seed-btn">Seed</button>
+            <button id="clearAll-btn">Clear All</button>
+          </div>
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Search Title/Description..."
+          />
+        </div>
+      </div>
+      <div class="content-wrapper">
+        <div class="left-panel">
+          <div class="error-message" id="error-box" style="display: none"></div>
+          <div class="container-form">
+            <h3>Add New Task</h3>
+            <p>
+              Pending tasks are <span class="spot-word">Yellow</span>. Mark done
+              to turn <span class="spot-word">Green</span>.
+            </p>
+            <label for="title-input">Title (required)</label>
+            <input type="text" id="title-input" placeholder="Title" required />
+            <label for="description-input"
+              >Description (optional, max 300 characters)</label
+            >
+            <textarea
+              id="description-input"
+              placeholder="Description"
+              rows="4"
+              maxlength="300"
+            ></textarea>
+            <div class="form-buttons">
+              <button class="btn-Reset" type="reset" id="reset-btn">
+                Reset
+              </button>
+              <button class="btn-AddTask" id="add-task-btn">Add Task</button>
+            </div>
+            <p class="tip-text">
+              Tip: Press <kbd class="spot-word">Ctrl</kbd> +
+              <kbd class="spot-word">Enter</kbd> to add quickly.
+            </p>
+          </div>
+        </div>
+        <div class="right-panel">
+          <div class="tasks-header">
+            <h3>Tasks</h3>
+            <p><span id="task-show">0</span> shown</p>
+          </div>
+          <p id="no-tasks-message" class="no-tasks-message">
+            No tasks match your filter/search.
+          </p>
+          <div id="tasks-container" class="tasks-container">
+            <!-- <div class="task-card">
+              <div class="card-content">
+                <h4>Prepare quiz questions</h4>
+                <p class="task-desc">Mix MCQ and true/false for DOM lessons.</p>
+
+                <div class="task-card-footer">
+                  <div class="tags-group">
+                    <span class="tag id-tag"
+                      >#<span id="No-of-tasks">1</span></span
+                    >
+                    <span class="tag status-tag">Pending</span>
+                  </div>
+                  <span class="date-text">Created: 5/24/2026, 6:10:23 PM</span>
+                </div>
+              </div>
+
+              <div class="task-actions">
+                <button class="btn-markDone" id="mark-done-btn">
+                  Mark Done ✅
+                </button>
+                <button class="btn-markPending" id="mark-pending-btn">
+                  Mark Pending ↩
+                </button>
+                <button class="btn-delete" id="delete-btn">Delete 🗑️</button>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="toast-message" id="toast-box" style="display: none"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
